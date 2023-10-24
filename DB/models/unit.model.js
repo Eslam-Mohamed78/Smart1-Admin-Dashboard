@@ -4,10 +4,7 @@ const unitSchema = new Schema(
   {
     unitName: {
       type: String,
-      min: 5,
-      max: 30,
       unique: true,
-      required: true,
     },
     // unit can have multi users
     usersIds: [{ type: mongoose.Types.ObjectId, ref: "User" }],

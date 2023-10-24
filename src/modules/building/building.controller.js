@@ -115,7 +115,7 @@ export const editBuilding = asyncHandler(async (req, res, next) => {
   }
 
   // update buildingName if given
-  if (buildingName) {
+  if (buildingName === "" || buildingName) {
     buildingExists.buildingName = buildingName;
   }
 

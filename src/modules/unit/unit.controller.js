@@ -144,7 +144,7 @@ export const editUnit = asyncHandler(async (req, res, next) => {
   }
 
   // update unitName if given
-  if (unitName) {
+  if (unitName === "" || unitName) {
     unitExists.unitName = unitName;
   }
 

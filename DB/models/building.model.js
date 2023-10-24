@@ -4,10 +4,7 @@ const buildingSchema = new Schema(
   {
     buildingName: {
       type: String,
-      min: 5,
-      max: 30,
       unique: true,
-      required: true,
     },
     // building belong to specific compound
     compoundId: {

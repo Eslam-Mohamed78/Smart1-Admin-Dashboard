@@ -2,8 +2,8 @@ import joi from "joi";
 
 export const registerSchema = joi
   .object({
-    userName: joi.string().required().min(3).max(20),
-    userEmail: joi.string().email().required(),
+    userName: joi.string().allow("").max(20).required(),
+    userEmail: joi.string().email().allow("").required(),
     userPassword: joi
       .string()
       .regex(/^[A-Z][a-z0-9]{4,10}$/)
@@ -14,15 +14,15 @@ export const registerSchema = joi
 
 export const loginSchema = joi
   .object({
-    userEmail: joi.string().email().required(),
+    userEmail: joi.string().email().allow("").required(),
     userPassword: joi.string().required(),
   })
   .required();
 
 export const viewAllUsersSchema = joi
   .object({
-    userName: joi.string().max(20),
-    userEmail: joi.string(),
+    userName: joi.string().allow("").max(20),
+    userEmail: joi.string().allow(""),
     page: joi.number().integer().min(0),
   })
   .required();

@@ -130,12 +130,12 @@ export const editCompound = asyncHandler(async (req, res, next) => {
   }
 
   // update compoundName if given
-  if (compoundName) {
+  if (compoundName === "" || compoundName) {
     compoundExists.compoundName = compoundName;
   }
 
   // update compoundLocation if given
-  if (compoundLocation) {
+  if (compoundLocation === "" || compoundLocation) {
     compoundExists.compoundLocation = compoundLocation;
   }
 

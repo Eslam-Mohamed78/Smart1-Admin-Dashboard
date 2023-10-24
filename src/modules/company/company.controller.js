@@ -128,12 +128,12 @@ export const editCompany = asyncHandler(async (req, res, next) => {
   }
 
   // update companyName if given
-  if (companyName) {
+  if (companyName === "" || companyName) {
     companyExists.companyName = companyName;
   }
 
   // update companyEmail if given
-  if (companyEmail) {
+  if (companyEmail === "" || companyEmail) {
     companyExists.companyEmail = companyEmail;
   }
 

@@ -4,12 +4,11 @@ const compoundSchema = new Schema(
   {
     compoundName: {
       type: String,
-      min: 5,
-      max: 30,
       unique: true,
-      required: true,
     },
-    compoundLocation: { type: String, required: true },
+    compoundLocation: {
+      type: String,
+    },
     compoundImage: {
       url: {
         type: String,
@@ -23,7 +22,7 @@ const compoundSchema = new Schema(
     },
     compoundStatus: {
       type: String,
-      default: "suspended",
+      default: "activated",
       enum: ["activated", "suspended"],
     },
     // compound can have multi buildings

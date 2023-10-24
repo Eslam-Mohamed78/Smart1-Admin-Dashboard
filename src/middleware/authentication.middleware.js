@@ -21,7 +21,10 @@ const isAuthenticated = asyncHandler(async (req, res, next) => {
   const tokenDB = await tokenModel.findOne({ token });
   if (!tokenDB) return next(new Error("Invalid token!"));
   if (!tokenDB.isValid)
-    return next(new Error("Token expired!", { cause: 400 }));
+    return res.json({
+      success: true,
+      message: "You already Logged out! Try to Login",
+    });
 
   // check user existence
   const user = await userModel.findOne({ _id: decoded._id });

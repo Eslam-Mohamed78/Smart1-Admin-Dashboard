@@ -3,17 +3,17 @@ import { isValidObjectId } from "../../middleware/validation.middleware.js";
 
 export const viewAllUnitsShema = joi
   .object({
-    unitName: joi.string().max(30),
+    unitName: joi.string().allow("").max(30),
     page: joi.number().integer().min(0),
   })
   .required();
 
 export const addUnitShema = joi
   .object({
-    unitName: joi.string().min(5).max(30).required(),
+    unitName: joi.string().allow("").max(30).required(),
     usersIds: joi
       .array()
-      .min(1)
+      .allow("")
       .items(joi.string().custom(isValidObjectId))
       .required(),
     buildingId: joi.string().custom(isValidObjectId).required(),
@@ -24,7 +24,7 @@ export const addUnitShema = joi
 export const editUnitShema = joi
   .object({
     unitId: joi.string().custom(isValidObjectId).required(),
-    unitName: joi.string().min(5).max(30),
+    unitName: joi.string().allow("").max(30),
     usersIds: joi.array().min(1).items(joi.string().custom(isValidObjectId)),
     buildingId: joi.string().custom(isValidObjectId),
     companyId: joi.string().custom(isValidObjectId),

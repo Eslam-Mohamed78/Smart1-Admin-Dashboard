@@ -2,10 +2,9 @@ import mongoose, { Schema, model } from "mongoose";
 
 const companySchema = new Schema(
   {
-    companyName: { type: String, required: true, min: 5, max: 30 },
+    companyName: { type: String, },
     companyEmail: {
       type: String,
-      required: true,
       unique: true,
       lowercase: true,
     },
@@ -22,7 +21,7 @@ const companySchema = new Schema(
     },
     companyStatus: {
       type: String,
-      default: "suspended",
+      default: "activated",
       enum: ["activated", "suspended"],
     },
     // company can work on different units
