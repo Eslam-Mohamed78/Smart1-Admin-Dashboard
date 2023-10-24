@@ -143,6 +143,11 @@ export const deleteBuilding = asyncHandler(async (req, res, next) => {
     const deletedUnit = await unitModel.findByIdAndDelete(unitId);
   });
 
+  // delete building from compound
+  await compoundModel.findByIdAndUpdate(building.compoundId, {
+    $pull: { buildingsIds: buildingId },
+  });
+
   // send response
   return res.json({
     success: true,
